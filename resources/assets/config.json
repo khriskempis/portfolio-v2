@@ -4,11 +4,14 @@
       "./scripts/main.js",
       "./styles/main.scss"
     ],
+    "general": [
+        "./styles/general.scss"
+    ],
     "customizer": [
       "./scripts/customizer.js"
     ],
-    "TemplateFront": [
-        "./styles/template-front.scss"
+    "TemplateHome": [
+        "./styles/template-home.scss"
     ]
   },
   "publicPath": "/wp-content/themes/portfolio",

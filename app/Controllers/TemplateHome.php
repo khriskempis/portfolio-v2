@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use Sober\Controller\Controller;
 
-class TemplateFront extends Controller
+class TemplateHome extends Controller
 {
 
 }

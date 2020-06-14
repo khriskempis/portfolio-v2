@@ -11,12 +11,74 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
-    wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
+
+    wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+
+    // commenting this out during http_build_cookie(cookie)
+    // if (!is_page_template(array('views/template-best.blade.php')) && !is_front_page()) {
+    //     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
+    // }
+
+    // if (is_page_template(array('views/template-best.blade.php'))) {
+    //     wp_enqueue_style('sage/best.css', asset_path('styles/best.css'), false, null);
+    // }
+
+    $template = get_page_template();
+    
+    if (strpos($template, 'lp-') !== false && !is_search()):
+
+        if (strpos($template, '.blade.php') !== false)
+            $basename = basename($template, '.blade.php');
+        else
+            $basename = basename($template, '.php');
+    
+        $css_file_name = str_replace('lp-', '', $basename);
+
+        if(!is_archive()):
+
+        wp_enqueue_style('sage/'.$css_file_name.'.css', asset_path('styles/lp-templates/'.$css_file_name.'.css'), false, null);
+        
+        endif;
+    
+    endif;
+
+    if (is_front_page()):
+
+        wp_enqueue_script('sage/home.js', asset_path('scripts/home.js'), ['jquery'], null, true);
+        wp_enqueue_style('sage/home.css', asset_path('styles/home.css'), false, null);
+        
+    elseif(is_search()):
+      
+        wp_enqueue_style('sage/general.css', asset_path('styles/general.css'), false, null);
+      
+    else:
+
+        if (strpos($template, '.blade.php') !== false)
+            $basename = basename($template, '.blade.php');
+        else
+            $basename = basename($template, '.php');
+
+        $css_file_name = camelCase($basename);
+
+        $asset_file = sage('assets')->get('styles/'.$css_file_name.'.css');
+
+        $asset_path = str_replace('/resources', '', get_template_directory());
+
+        if (file_exists($asset_path.'/dist/'.$asset_file)):
+
+            wp_enqueue_style('sage/'.$css_file_name.'.css', asset_path('styles/'.$css_file_name.'.css'), false, null);
+
+        else:
+    
+            wp_enqueue_style('sage/general.css', asset_path('styles/general.css'), false, null);
+            
+        endif;
+
+    endif;
 }, 100);
 
 /**
