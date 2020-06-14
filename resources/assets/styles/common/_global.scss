@@ -1,0 +1,158 @@
+// ===== BASE STYLES =====
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0;
+    font-family: $roboto;
+    font-size: $m-size;
+    line-height: 1.6;
+    color: $dark-blue;
+    border-top: 4px solid $primary-color;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .img-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+// ===== NAV =====
+.banner {
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+    padding: 0 3%;
+    max-width: 1024px;
+
+    .headshot-container {
+        width: 60px;
+        border-radius: 100%;
+        overflow: hidden;
+    
+        @include respond-to(handhelds){
+          width: 100px;
+          height: 100px;
+        }
+        #headshot {
+            height: 100%;
+            width: 100%;
+            background: url(../assets/images/headshot.jpg) 80% 5%;
+            background-size: cover;
+            background-size: 130%;
+            @include respond-to(medium-screens){
+                background-size: 130%;
+            }
+        }
+    }
+}
+
+nav {
+  .nav-links{
+    font-size: 1.5rem;
+    display: flex;
+    a {
+      text-decoration: none;
+      margin: 0 $s-size;
+      color: $primary-color;
+      &:visited {
+        color: $primary-color;
+      }
+    }
+    @include respond-to(medium-screens){
+      font-size: 1.9rem;
+      a {
+        margin: 0 $m-size;
+      }
+    }
+  }
+}
+
+
+// ===== HEADER =====
+
+header {
+  font-family: $roboto;
+  width: 100vw;
+  opacity: 1;
+}
+
+// ===== MAIN =====
+
+.main {
+  
+    p {
+      margin: 4% 0;
+      line-height: 180%;
+    }
+    a {
+      color: $dark-blue;
+      margin: 0 5px;
+    }
+    .section-container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+    .container {
+      display: block;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+      @include respond-to(medium-screens) { 
+        .container {
+          max-height: 600px;
+          display: flex;
+          justify-content: space-around;
+        }
+      } 
+  }
+
+  // ===== FOOTER =====
+
+footer {
+    color: $off-white;
+    background-color: $dark-blue;
+    font-size: 1.3rem;
+    padding-bottom: 30px;
+    .copyright-container {
+      text-align: center;
+      h3 {
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+    .contact-links {
+      display: flex;
+      max-width: 300px;
+      margin: 10px auto;
+      padding-top: 30px;
+      justify-content: space-around;
+      li {
+        padding: 0% 6%;
+      }
+      a svg {
+        height: 50px;
+        width: 30px !important;
+        color: $accent-color;
+      }
+    }
+  }
+  

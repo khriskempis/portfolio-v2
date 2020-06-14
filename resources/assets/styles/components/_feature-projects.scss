@@ -1,0 +1,118 @@
+// ===== PROJECTS =====
+
+.section-header {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #FA9F26;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  .projects {
+    margin-top: 10%; 
+    @include respond-to(large-screens) { 
+      margin-top: 0; 
+    }
+    .title {
+      font-size: 160%;
+      margin-left: 5%;
+    }
+    .github-link {
+      display: block;
+      margin: 4% 0; 
+    }
+    #music-test, #data-breach, #inventory {
+      flex-direction: row-reverse;
+    }
+    .img-container {
+      width: 90%;
+      max-width: 400px;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto;
+      @include respond-to(medium-screens) {
+        width: 40%;
+        margin-top: 12px;
+      }
+      .img-link {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+      #music-test-img {
+        background: url(../assets/images/sheetmusic.jpg) center;
+        background-size: cover;
+      }
+      #sanford-img {
+        background: url(../assets/images//sanford-img.jpg) center;
+        background-size: cover;
+      }
+      #inventory-img {
+        background: url(../assets/images/inventory-photo.jpg) center;
+        background-size: cover;
+      }
+      #breach-img {
+        background: url(../assets/images/matrix-laptop.jpeg) 30%;
+        background-size: cover;
+      }
+    }
+    
+  
+    .project-info {
+      width: 90%;
+      margin: 30px auto;
+      font-size: 15px;
+      .description {
+        a {
+          cursor: pointer;
+        }
+        a svg {
+          margin-right: 10px;
+          height: 25px;
+          width: 25px;
+        }
+      }
+    }
+    @include respond-to(handhelds) {
+      .project-info {
+        width: 88%;
+      }
+    }
+    @include respond-to(medium-screens) {
+      .project-info {
+        width: 40%;
+        font-size: 16px;
+        margin: 0 auto;
+      }
+      .title {
+        margin-left: 9.5%;
+      }
+    }
+  }
+  hr {
+    width: 50%;
+    margin: 15% auto;
+    @include respond-to(medium-screens){
+      margin: 10% auto;
+    }
+  }
+  
+  .view-button-container {
+    text-align: center;
+    margin: 25px 0;
+    .secondary-button {
+      color: $accent-color !important;
+      border: 2px solid $accent-color;
+      text-decoration: none;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+    @include respond-to(medium-screens){
+      .secondary-button {
+        padding: 10px 15px;
+        font-size: 16px;
+      }
+    }
+  }

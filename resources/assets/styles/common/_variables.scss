@@ -1,0 +1,52 @@
+/** Colors */
+$brand-primary:         #525ddc;
+
+/** Box Model  */
+$spacer:                2rem;
+
+// Font Size
+$font-size-large: 1.8rem;
+$font-size-small: 1.4rem;
+
+// Spacing
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+$desktop-breakpoint: 45rem;
+
+//Fonts
+$roboto: "Roboto", sans-serif;
+
+// Break Points
+
+$break-small: 375px;
+$break-medium: 765px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (min-width: $break-small) {
+      @content;
+    }
+  }
+
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-medium + 1) {
+      @content;
+    }
+  }
+
+  @else if $media == large-screens {
+    @media only screen and (min-width: $break-large) {
+      @content;
+    }
+  }
+}
+
+// Color Palette
+
+$primary-color: #0573b3;
+$accent-color: #fa9f26;
+$dark-blue: #1b4d6d;
+$off-white: #f7f7f7;
